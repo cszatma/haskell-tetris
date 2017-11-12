@@ -7,4 +7,4 @@ createBoard list = do
 printBoard board = do
     mapM_ putStrLn $ map (\row -> "|" ++ (concat row) ++ "|") board
     let rowLength = length $ board !! 0
-    putStrLn $ "+" ++ (take rowLength $ repeat '-') ++ "+"
+    putStrLn $ "+" ++ (replicate rowLength '-') ++ "+"
