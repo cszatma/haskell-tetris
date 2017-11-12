@@ -4,7 +4,11 @@ module Main where
 import System.IO
 import Data.List
 import Data.String
+
+-- Import local modules
 import Board
+import qualified Tetrimino
+import qualified Moves
 
 -- Main function
 main :: IO ()
