@@ -19,3 +19,9 @@ valuesAtPositions board positions = map (\[x, y] -> board !! y !! x) positions
 
 hasBlockAtPositions :: Board -> [[Int]] -> Bool
 hasBlockAtPositions board positions = any (/= " ") $ valuesAtPositions board positions
+
+numOfRows :: Board -> Int
+numOfRows board = length $ board !! 0
+
+numOfCols :: Board -> Int
+numOfCols board = length board
