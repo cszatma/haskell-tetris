@@ -1,18 +1,7 @@
 module Tetrimino where
 
 -- Define Tetrimino type
-data Tetrimino = Tetrimino [[Int]] (Int, Int) String
-    deriving Show
-
--- Functions for getting properties
-points :: Tetrimino -> [[Int]]
-points (Tetrimino pointsList _ _) = pointsList
-
-position :: Tetrimino -> (Int, Int)
-position (Tetrimino _ pos _) = pos
-
-typeString :: Tetrimino -> String
-typeString (Tetrimino _ _ str) = str
+data Tetrimino = Tetrimino { points :: [[Int]], position :: (Int, Int), typeString :: String } deriving (Show)
 
 -- Creating Tetriminos
 createType :: Int -> (Int, Int) -> Tetrimino

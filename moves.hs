@@ -15,9 +15,9 @@ shiftDown board tetrimino = 101
 performDrop board tetrimino = 102
 
 -- Checks if the tetrimino is at the bottom of the board
-isOnBottom :: [[String]] -> Tetrimino.Tetrimino -> Bool
+isOnBottom :: Board.Board -> Tetrimino.Tetrimino -> Bool
 isOnBottom board tetrimino = elem (length board - 1) $ Tetrimino.getYValues tetrimino
 
 -- Checks if a tetrimino overlaps with another tetrimino on the board
-pieceDoesOverlap :: [[String]] -> Tetrimino.Tetrimino -> Bool
+pieceDoesOverlap :: Board.Board -> Tetrimino.Tetrimino -> Bool
 pieceDoesOverlap board tetrimino = Board.hasBlockAtPositions board $ Tetrimino.getPosOnBoard tetrimino
