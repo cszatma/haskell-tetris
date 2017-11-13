@@ -6,7 +6,7 @@ import Data.List
 import Data.String
 
 -- Import local modules
-import Board
+import qualified Board
 import qualified Tetrimino
 import qualified Moves
 
@@ -28,5 +28,5 @@ getCommands inputString = do
     map (words) $ lines inputString
 
 runCommands commands = do
-    createBoard $ commands !! 0
+    Board.createBoard $ commands !! 0
 

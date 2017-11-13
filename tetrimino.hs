@@ -30,5 +30,10 @@ createType 6 pos = Tetrimino [[-1, 0], [0, 0], [1, 0], [0, -1]] pos "p"
 
 createType 7 pos = Tetrimino [[-1, 0], [0, 0], [1, 0], [2, 0]] pos "c"
 
+-- Returns the absolute positions of the tetrimino
 getPosOnBoard :: Tetrimino -> [[Int]]
 getPosOnBoard (Tetrimino points pos _) = map (\point -> [point !! 0 + fst pos, point !! 1 + snd pos]) points
+
+-- Returns all the absolute Y values of the tetrimino
+getYValues :: Tetrimino -> [Int]
+getYValues tetrimino = map (!! 1) $ getPosOnBoard tetrimino
