@@ -11,8 +11,9 @@ printBoard board = do
     let rowLength = length $ board !! 0
     putStrLn $ "+" ++ (replicate rowLength '-') ++ "+"
 
+-- Returns the values at the given positions on the board
 valuesAtPositions :: [[String]] -> [[Int]] -> [String]
-valuesAtPositions board positions = map (\[row, col] -> board !! row !! col) positions
+valuesAtPositions board positions = map (\[x, y] -> board !! y !! x) positions
 
 hasBlockAtPositions :: [[String]] -> [[Int]] -> Bool
-hasBlockAtPositions board positions = not $ null $ filter (/= " ") $ valuesAtPositions board positions 
+hasBlockAtPositions board positions = any (/= " ") $ valuesAtPositions board positions
