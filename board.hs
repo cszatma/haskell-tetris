@@ -13,12 +13,11 @@ printBoard board = do
     let rowLength = length $ board !! 0
     putStrLn $ "+" ++ (replicate rowLength '-') ++ "+"
 
-formatBoard :: Board -> String
-formatBoard board = do
-    let rows = map (\row -> "|" ++ (concat row) ++ "|") board
-    let rowLength = length $ board !! 0
-    let bottomRow = ["+" ++ (replicate rowLength '-') ++ "+"]
-    unlines $ rows ++ bottomRow
+formatBoard :: Board -> Int -> String
+formatBoard board numOfPieces = do
+    let (firstRow:remainingRows) = map (\row -> "|" ++ (concat row) ++ "|") board
+    let bottomRow = ["+" ++ (replicate (numOfRows board) '-') ++ "+"]
+    unlines $ [firstRow ++ " " ++ (show numOfPieces) ++ " pieces"] ++ remainingRows ++ bottomRow
 
 -- Returns the values at the given positions on the board
 valuesAtPositions :: Board -> [[Int]] -> [String]

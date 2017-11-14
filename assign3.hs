@@ -23,7 +23,7 @@ readFrom input = do
     let board = Board.createBoard $ commands !! 0
     let dice =  createDice $ commands !! 1
     let moves = createMoves $ commands !! 2
-    Board.formatBoard board
+    Board.formatBoard board 0
 
 -- Parses a string with all the commands
 -- Returns a 2D list of strings where each sublist is each string in the command
