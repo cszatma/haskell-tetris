@@ -16,17 +16,21 @@ main = do
     input <- getContents
     putStr $ show $ readFrom input
 
+readFrom :: String -> [[String]]
 readFrom input = do
-    --let inputLines = lines input
-    --let commands = map (words) inputLines
-    --createBoard $ (getCommands input) !! 0
-    getCommands input
+    let commands = parseCommands input
+    let board = Board.createBoard $ commands !! 0
+    board
 
--- Returns a list of commands
--- Each command is a list of strings that make up the command
-getCommands inputString = do
-    map (words) $ lines inputString
+-- Parses a string with all the commands
+-- Returns a 2D list of strings where each sublist is each string in the command
+parseCommands :: String -> [[String]]
+parseCommands inputString = map (words) $ lines inputString
 
 runCommands commands = do
     Board.createBoard $ commands !! 0
 
+-- just kept as a funtion not a module
+-- it "moves l l+ .." -> "ll+.."
+moveArray list = do
+filter (/=' ') (concat $ tail list)
